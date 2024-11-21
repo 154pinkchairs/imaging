@@ -1,8 +1,8 @@
-go 1.21
+go 1.23
 
 module github.com/154pinkchairs/imaging
 
 require (
 	github.com/disintegration/imaging v1.6.2
-	golang.org/x/image v0.12.0
+	golang.org/x/image v0.22.0
 )

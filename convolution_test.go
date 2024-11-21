@@ -226,7 +226,7 @@ func TestConvolve5x5(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			got := Convolve5x5(tc.src, tc.kernel, tc.options)
+			got := Convolve5x5(tc.src, &tc.kernel, tc.options)
 			if !compareNRGBA(got, tc.want, 0) {
 				t.Fatalf("got result %#v want %#v", got, tc.want)
 			}
@@ -325,7 +325,7 @@ func BenchmarkConvolve5x5(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Convolve5x5(
 			testdataBranchesJPG,
-			[25]float64{
+			&[25]float64{
 				-1, -1, -1, -1, 0,
 				-1, -1, -1, 0, 1,
 				-1, -1, 0, 1, 1,
